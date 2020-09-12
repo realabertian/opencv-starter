@@ -7,3 +7,5 @@ set(CMAKE_CXX_STANDARD 11)
 find_package(OpenCV REQUIRED)
 
 add_subdirectory(mat)
+
+add_subdirectory(scan_images)

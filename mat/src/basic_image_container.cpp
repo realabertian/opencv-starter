@@ -19,11 +19,11 @@ int main() {
     // All the above objects, in the end, point to the same single data matrix and making a modification using any of them will affect
     // all the ones as well. in practice the different objects just provide different access methods to the same underlying data;
     // nevertheless, their header parts are different. The real interesting part is that you can create headers which refer to only
-    // a subsection of subsection of the full data. For example, to create a region of interest (ROI), in an image you just create a
+    // a subsection of the full data. For example, to create a region of interest (ROI), in an image you just create a
     // new header with the new boundaries:
     
     // using Mat constructor
-    Mat D(A, Rect(10, 10, 100, 100));
+    Mat D(A, Rect(0, 0, 100, 100));
     Mat E = A(Range::all(), Range(1,3)); // using row and column boundaries
     
     // D and E's size has changed, but they pointer same undlerlying data
@@ -31,7 +31,10 @@ int main() {
     std::cout << "E size: " << E.size << std::endl;
     
 //    imshow("D", D);
+    imshow("A", A);
+    imshow("C", C);
     imshow("E", E);
+    imshow("D", D);
     int k = waitKey(0);
     
     return 0;
